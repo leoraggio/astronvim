@@ -7,7 +7,9 @@ return {
 				"python",
 				"go",
 				"clojure",
-				"scala"
+				"scala",
+				"markdown",
+				"yaml"
 			},
 		},
 	}
