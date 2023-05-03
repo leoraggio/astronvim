@@ -1,6 +1,6 @@
 return {
   "is0n/jaq-nvim",
-  ft = { "rust", "python", "go", "scala", "markdown", "sh" },
+  ft = { "rust", "python", "go", "scala", "markdown", "sh", "scala" },
   opts = {
     cmds = {
       external = {
@@ -9,6 +9,7 @@ return {
         go = "go run %",
         rust = "cargo run %",
         sh = "sh %",
+        scala = "bloop run root"
       }
     },
     behavior = {

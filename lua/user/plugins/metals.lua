@@ -18,7 +18,23 @@ return {
     metals_config.settings = {
       showImplicitArguments = true,
       excludedPackages = { "akka.actor.typed.javadsl", "com.github.swagger.akka.javadsl" },
+      -- serverProperties = { "-Xmx10GB" }
     }
+
+    vim.o.shortmess = string.gsub(vim.o.shortmess, 'F', '') .. 'c'
+
+    -- LSP mappings
+    local function map(mode, lhs, rhs, opts)
+      local options = { noremap = true }
+      if opts then
+        options = vim.tbl_extend("force", options, opts)
+      end
+      vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+    end
+
+    map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', { nowait = true })
+    map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
+
 
     -- Autocmd that will actually be in charging of starting the whole thing
     local nvim_metals_group = vim.api.nvim_create_augroup("nvim-metals", { clear = true })
